@@ -13,12 +13,12 @@ public class ZkLockController {
 
     @RequestMapping("zkLock")
     public String zkLock() {
-        log.info("我进入了方法");
+        log.info("我进入了方法!");
         String connectString = "192.168.31.78:2181";
         String businessName = "order";
         try(ZkLock zkLock = new ZkLock(connectString, businessName)) {
             if(zkLock.getLock()) {
-                log.info("我进入了锁");
+                log.info("我进入了锁!");
                 Thread.sleep(15000);
             }
         } catch (IOException e) {
@@ -26,8 +26,8 @@ public class ZkLockController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        log.info("方法执行完成");
-        return "方法执行完成";
+        log.info("方法执行完成!");
+        return "方法执行完成!";
     }
 
 }
